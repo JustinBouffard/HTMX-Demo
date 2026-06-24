@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.10/dist/htmx.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      htmx.config.selfRequestsOnly = false;
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>HTMX Crash Course</title>
+  </head>
+  <body>
+    <div class="text-center">
+      <h1 class="text-2xl font-bold my-5">Simple Request Example</h1>
+      <button
+        hx-get="https://jsonplaceholder.typicode.com/users"
+        hx-trigger="click"
+        class="bg-blue-500 text-white py-2 px-3 my-5 rounded-lg"
+      >
+        Fetch Users
+      </button>
+    </div>
+  </body>
+</html>
