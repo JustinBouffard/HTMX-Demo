@@ -12,47 +12,56 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>HTMX Crash Course</title>
   </head>
-  <body class="bg-blue-900">
-    <div class="container mx-auto py-8 max-w-lg">
-      <span class="htmx-indicator" id="loading">
-        <img src="img/loader.gif" alt="Loading..." class="m-auto h-10" />
-      </span>
-      <div
-        class="bg-gray-900 text-white p-4 border border-gray-600 rounded-lg max-w-lg m-auto"
-      >
-        <h3 class="text-2xl mb-3 text-center">Search Contacts</h3>
+  <body class="bg-blue-500">
+    <form class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg mt-6">
+      <h1 class="text-2xl font-bold mb-4 text-center">Contact Us</h1>
+      <div class="mb-4" hx-target="this" hx-swap="outerHTML">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="email"
+          >Email Address</label
+        >
         <input
-          class="border border-gray-600 bg-gray-800 p-2 rounded-lg w-full mb-5"
-          type="search"
-          name="search"
-          placeholder="Begin Typing To Search Users..."
-          hx-post="/search/api"
-          hx-trigger="input change delay:500ms, search"
-          hx-target="#search-results"
-          hx-indicator="#loading"
+          name="email"
+          hx-post="/contact/email"
+          class="border rounded-lg py-2 px-3 w-full focus:outline-none focus:border-blue-500"
+          type="email"
+          id="email"
+          required
         />
-        <table class="min-w-full divide-y divide-gray-200">
-          <thead class="bg-gray-800 text-white">
-            <tr>
-              <th
-                scope="col"
-                class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider"
-              >
-                Name
-              </th>
-              <th
-                scope="col"
-                class="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider"
-              >
-                Email
-              </th>
-            </tr>
-          </thead>
-          <tbody id="search-results" class="divide-y divide-gray-600">
-            <!-- Your search results go here -->
-          </tbody>
-        </table>
       </div>
-    </div>
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="firstName"
+          >First Name</label
+        >
+        <input
+          type="text"
+          name="firstName"
+          class="border rounded-lg py-2 px-3 w-full focus:outline-none focus:border-blue-500"
+          id="firstName"
+          required
+        />
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="lastName"
+          >Last Name</label
+        >
+        <input
+          type="text"
+          name="lastName"
+          class="border rounded-lg py-2 px-3 w-full focus:outline-none focus:border-blue-500"
+          id="lastName"
+          required
+        />
+      </div>
+      <div class="flex items-center justify-between">
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
   </body>
 </html>
